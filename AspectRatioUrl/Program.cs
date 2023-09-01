@@ -54,7 +54,6 @@ namespace AspectRatioUrl
             return a;
         }
 
-
         static string GetAspectRatio(Image image)
         {
             if (image != null)
@@ -77,9 +76,7 @@ namespace AspectRatioUrl
 
         static Image GetImage(string url)
         {
-            HtmlConverter converter = new HtmlConverter();
-
-            var bytes = converter.FromUrl(url);
+            var bytes = GetByteArray(url);
 
             if (bytes != null)
             {
@@ -103,11 +100,8 @@ namespace AspectRatioUrl
                 return null;
             }
         }
-    }
 
-    public class HtmlConverter
-    {
-        public byte[] FromUrl(string url)
+        static byte[] GetByteArray(string url)
         {
             try
             {
